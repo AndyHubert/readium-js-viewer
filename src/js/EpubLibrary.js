@@ -674,7 +674,10 @@ biblemesh_Helpers){
         Dialogs.showModalProgress(Strings.migrate_dlg_title, Strings.migrate_dlg_message);
         libraryManager.handleMigration({
             success: function(){
+                
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('needsMigration', false, $.noop);
+
                 handleLibraryChange();
             },
             progress: Dialogs.updateProgress,
@@ -817,6 +820,16 @@ biblemesh_Helpers){
             $("#buttClose").attr("accesskey", Keyboard.accesskeys.SettingsModalClose);
         });
 
+        var isChromeExtensionPackagedApp_ButNotChromeOS = (typeof chrome !== "undefined") && chrome.app
+            && chrome.app.window && chrome.app.window.current // a bit redundant?
+            && !/\bCrOS\b/.test(navigator.userAgent);
+
+        // test whether we are in the Chrome app.  If so, put up the dialog and whine at the users...
+        if (isChromeExtensionPackagedApp_ButNotChromeOS) {
+            setTimeout(function() {
+                Dialogs.showModalHTML(Strings.i18n_ChromeApp_deprecated_dialog_title, Strings.i18n_ChromeApp_deprecated_dialog_HTML);
+            }, 800);
+        }
 
         //async in Chrome
         Settings.get("needsMigration", function(needsMigration){
@@ -848,6 +861,7 @@ biblemesh_Helpers){
         });
     };
     window.setReplaceByDefault = function(replace){
+        // Note: automatically JSON.stringify's the passed value!
         Settings.put('replaceByDefault', String(replace));
     }
     return {

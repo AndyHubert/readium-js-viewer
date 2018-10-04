@@ -59,6 +59,8 @@
 
         npm run dist:chromeApp:copy
         &&
+        npm run dist:chromeApp:copy:fonts
+        &&
         node build-config/updateChromeManifest.js
         &&
         npm run dist:chromeApp:css
@@ -96,7 +98,7 @@
             dist/chrome-app/images/
         &&
         npm run cpy
-            node_modules/mathjax-single-file/dist/MMLSVG/MathJax.js
+            node_modules/mathjax-single-file/dist/readium/MathJax.js
             dist/chrome-app/scripts/mathjax
         &&
         npm run ncp
@@ -126,6 +128,13 @@
         npm run cpy
             src/chrome-app/manifest.json
             dist/chrome-app/
+    '
+
+#=====================
+    'dist:chromeApp:copy:fonts': '
+        npm run ncp
+            src/fonts/
+            dist/chrome-app/font-faces/
     '
 
 #        &&
@@ -198,4 +207,3 @@
             --output dist/Readium.crx
             --private-key tests/test.pem
     '
-

@@ -18,6 +18,8 @@
 
         npm run dist:cloudReader:copy
         &&
+        npm run dist:cloudReader:copy:fonts
+        &&
         npm run dist:cloudReader:css
         &&
         npm run dist:cloudReader:js
@@ -53,7 +55,7 @@
             dist/cloud-reader/images/
         &&
         npm run cpy
-            node_modules/mathjax-single-file/dist/MMLSVG/MathJax.js
+            node_modules/mathjax-single-file/dist/readium/MathJax.js
             dist/cloud-reader/scripts/mathjax
         &&
         npm run ncp
@@ -63,6 +65,13 @@
         npm run cpy
             src/css/annotations.css
             dist/cloud-reader/css/
+    '
+
+#=====================
+    'dist:cloudReader:copy:fonts': '
+        npm run ncp
+            src/fonts/
+            dist/cloud-reader/font-faces/
     '
 
 #=====================
