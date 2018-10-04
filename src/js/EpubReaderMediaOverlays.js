@@ -78,6 +78,7 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 json.mediaOverlaysEnableClick = settings.mediaOverlaysEnableClick;
                 json.mediaOverlaysPreservePlaybackWhenScroll = settings.mediaOverlaysPreservePlaybackWhenScroll;
 
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             }
 
@@ -543,6 +544,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysPreservePlaybackWhenScroll = false;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -568,6 +571,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysPreservePlaybackWhenScroll = true;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -596,6 +601,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysAutomaticPageTurn = false;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -621,6 +628,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysAutomaticPageTurn = true;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -650,6 +659,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysSkipSkippables = false;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -675,6 +686,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysSkipSkippables = true;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -703,6 +716,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysEnableClick = true;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
@@ -728,6 +743,8 @@ define(['readium_shared_js/globals', 'module','jquery', 'underscore', 'bootstrap
                 }
 
                 json.mediaOverlaysEnableClick = false;
+
+                // Note: automatically JSON.stringify's the passed value!
                 Settings.put('reader', json);
             });
 
